@@ -14,3 +14,8 @@ E instalar as dependências:
 ```bash
 pip install -r requirements.txt
 ```
+
+Logo após estar com o ambiente ativado e as dependências instaladas, basta iniciar:
+```bash
+python main.py
+```
