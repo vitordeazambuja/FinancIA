@@ -7,6 +7,7 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("FinancIA")
         self.setMinimumSize(800,600)
         self.init_ui()
+        self.predict_btn.clicked.connect(self.predict_stock)
     
     def init_ui(self):
         central_widget = QWidget()
@@ -34,3 +35,7 @@ class MainWindow(QMainWindow):
         self.info_label = QLabel("Selecione uma ação e clique em 'Prever'.")
         self.info_label.setAlignment(Qt.AlignCenter)
         main_layout.addWidget(self.info_label)
+        
+    def predict_stock(self):
+        selected_stock = self.stock_combo.currentText()
+        self.info_label.setText(f"Processando {selected_stock}...")
