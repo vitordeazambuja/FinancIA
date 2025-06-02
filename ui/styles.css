@@ -1,0 +1,23 @@
+QMainWindow {
+    background-color: #333;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+QLabel {
+    font-size: 14px;
+    color: #efe3e3;
+}
+
+QComboBox, QPushButton {
+    background-color: #333;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px 10px;
+    min-height: 30px;
+}
+
+QPushButton {
+    background-color: #4CAF50;
+    color: #333;
+    font-weight: bold;
+}
