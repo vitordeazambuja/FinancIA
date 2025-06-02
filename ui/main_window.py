@@ -28,7 +28,7 @@ class MainWindow(QMainWindow):
         self.predict_btn = QPushButton("Prever")
         control_layout.addWidget(self.predict_btn)
 
-        self.chart_placeholder = QLabel("Gráfico aparecerá aqui")
+        self.chart_placeholder = QLabel("[Gráfico Placeholder]")
         self.chart_placeholder.setAlignment(Qt.AlignCenter)
         main_layout.addWidget(self.chart_placeholder)
 
