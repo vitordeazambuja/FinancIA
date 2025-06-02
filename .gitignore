@@ -1,8 +1,9 @@
 venv/
 env/
 .env
-data/historical_data/
-data/trained_models/
+#Ignore removido temporariamente para criação da estrutura de pastas
+#data/historical_data/
+#data/trained_models/
 __pycache__/
 *.py[cod]
 *$py.class
