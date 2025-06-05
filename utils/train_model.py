@@ -1,3 +1,4 @@
+import os
 import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
@@ -44,10 +45,12 @@ def train_model(X, y, n_estimators=50, random_state=42):
     return model
 
 # ---------- 4. Salvamento do modelo ----------
-def save_model(model, path='modelo_treinado.joblib'):
+def save_model(model, path='models/modelo.joblib'):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
     joblib.dump(model, path)
 
-def save_scaler(scaler, path='scaler.joblib'):
+def save_scaler(scaler, path='models/scaler.joblib'):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
     joblib.dump(scaler, path)
 
 # ---------- 5. Execução de teste ----------
@@ -62,6 +65,3 @@ if __name__ == "__main__":
     save_scaler(scaler)
 
     print("Modelo e scaler treinados e salvos com sucesso.")
-
-
-"(*APAGAR*) P.S.: Código 99%CHATGPT, mas aquele 1% é humano. *(APAGAR)*"
