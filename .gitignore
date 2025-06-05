@@ -23,5 +23,6 @@ build/
 *.ipynb_checkpoints
 # Adicionada extensão .csv por motivos de Jean
 *.csv
+*.joblib
 !.gitkeep
 !README.md
