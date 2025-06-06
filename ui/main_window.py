@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import (QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QComboBox, QPushButton)
 from PyQt5.QtCore import Qt
+from utils.model_utils import prever_acao
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -39,3 +40,9 @@ class MainWindow(QMainWindow):
     def predict_stock(self):
         selected_stock = self.stock_combo.currentText()
         self.info_label.setText(f"Processando {selected_stock}...")
+        
+        try:
+            resultado = prever_acao(selected_stock)
+            self.info_label.setText(f"Valor previsto para amanhã: R$ {resultado:.2f}")
+        except Exception as e:
+            self.info_label.setText(f"Erro: {str(e)}")

@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import GridSearchCV
 import joblib
 
 # ---------- 1. Mock de dados ----------
@@ -32,7 +33,7 @@ def mock_prepare_data(df, column='Close', window_size=60):
         X.append(series_scaled[i:i+window_size])
         y.append(series_scaled[i+window_size])
 
-    return np.array(X), np.array(y), scaler
+    return np.array(X).reshape(len(X), -1), np.array(y), scaler
 
 
 # ---------- 3. Implementação de train_model() ----------
@@ -65,3 +66,32 @@ if __name__ == "__main__":
     save_scaler(scaler)
 
     print("Modelo e scaler treinados e salvos com sucesso.")
+    
+# ---------- 6. Ajuste de Hiperparâmetros ----------
+def ajustar_hiperparametros(X, y):
+    """
+    Executa busca em grade (GridSearchCV) para encontrar os melhores hiperparâmetros
+    do RandomForestRegressor.
+    """
+    param_grid = {
+        'n_estimators': [50, 100, 150],
+        'max_depth': [None, 10, 20],
+        'min_samples_split': [2, 5],
+        'min_samples_leaf': [1, 2]
+    }
+
+    base_model = RandomForestRegressor(random_state=42)
+    grid_search = GridSearchCV(
+        base_model,
+        param_grid,
+        cv=3,
+        scoring='neg_mean_squared_error',
+        verbose=1,
+        n_jobs=-1
+    )
+
+    print("[INFO] Iniciando ajuste de hiperparâmetros com GridSearchCV...")
+    grid_search.fit(X, y)
+    print(f"[RESULTADO] Melhor combinação: {grid_search.best_params_}")
+
+    return grid_search.best_estimator_
