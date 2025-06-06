@@ -1,6 +1,8 @@
 venv/
 env/
+.venv/
 .env
+.venv
 #Ignore removido temporariamente para criação da estrutura de pastas
 #data/historical_data/
 #data/trained_models/
