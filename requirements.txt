@@ -1,7 +1,6 @@
-PyQt5
-PyQtChart
 yfinance
-scikit-learn
-numpy
 pandas
-tensorflow
+numpy
+scikit-learn
+joblib
+PyQt5
