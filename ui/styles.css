@@ -1,23 +1,46 @@
-QMainWindow {
-    background-color: #333;
-    font-family: 'Segoe UI', Arial, sans-serif;
+QWidget {
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+    font-size: 14px;
+    background-color: #1e1e2f;
+    color: #e0e6f0;
 }
 
 QLabel {
     font-size: 14px;
-    color: #efe3e3;
+    color: #e0e6f0;
 }
 
-QComboBox, QPushButton {
-    background-color: #333;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 5px 10px;
-    min-height: 30px;
+QLabel#empresa_label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
 }
 
 QPushButton {
-    background-color: #4CAF50;
-    color: #333;
-    font-weight: bold;
+    background-color: #3b82f6;
+    color: white;
+    border-radius: 6px;
+    padding: 6px 12px;
+}
+
+QPushButton:hover {
+    background-color: #2563eb;
+}
+
+QComboBox, QLineEdit {
+    border: 1px solid #3f3f55;
+    border-radius: 5px;
+    padding: 4px;
+    background-color: #2a2a40;
+    color: #e0e6f0;
+}
+
+QComboBox:focus, QLineEdit:focus {
+    border: 1px solid #3b82f6;
+}
+
+#result_label, #metricas_label {
+    font-size: 14px;
+    color: #cfd8e3;
+    margin-top: 8px;
 }
